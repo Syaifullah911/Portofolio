@@ -1,0 +1,1165 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Newa's Here — Website Content &amp; UX Writer</title>
+    <meta
+      name="description"
+      content="Newa's Here menulis konten website dan UX writing yang jernih, ringkas, dan berdampak."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #faf8f3;
+        --paper-soft: #f3f0e8;
+        --ink: #201f1b;
+        --ink-soft: #5a584f;
+        --ink-faint: #8b8878;
+        --sage: #4a5d3a;
+        --sage-light: #e4e9dc;
+        --mark: #b23a2e;
+        --mark-light: #f3e2de;
+        --line: #dedacb;
+        --serif: "Fraunces", serif;
+        --sans: "Inter", sans-serif;
+        --mono: "IBM Plex Mono", monospace;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--sans);
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      ::selection {
+        background: var(--sage-light);
+        color: var(--sage);
+      }
+      a {
+        color: inherit;
+      }
+      .wrap {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      /* ---------- nav ---------- */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(250, 248, 243, 0.9);
+        backdrop-filter: blur(6px);
+        border-bottom: 1px solid var(--line);
+      }
+      nav.wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 76px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--serif);
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        text-decoration: none;
+      }
+      .logo svg {
+        flex-shrink: 0;
+      }
+      .navlinks {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+        font-size: 14px;
+      }
+      .navlinks a {
+        text-decoration: none;
+        color: var(--ink-soft);
+        transition: color 0.15s;
+      }
+      .navlinks a:hover {
+        color: var(--ink);
+      }
+      .nav-cta {
+        font-family: var(--mono);
+        font-size: 13px;
+        border: 1px solid var(--ink);
+        border-radius: 100px;
+        padding: 8px 18px;
+        text-decoration: none;
+        color: var(--ink);
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .nav-cta:hover {
+        background: var(--ink);
+        color: var(--paper);
+      }
+      .navtoggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+      }
+      .navtoggle span {
+        display: block;
+        width: 22px;
+        height: 1.5px;
+        background: var(--ink);
+        margin: 5px 0;
+      }
+
+      /* ---------- eyebrow / annotation style ---------- */
+      .eyebrow {
+        font-family: var(--mono);
+        font-size: 12.5px;
+        letter-spacing: 0.04em;
+        color: var(--sage);
+        text-transform: lowercase;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+      .eyebrow::before {
+        content: "";
+        width: 14px;
+        height: 1px;
+        background: var(--sage);
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        padding: 110px 0 90px;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 56px;
+        align-items: center;
+      }
+      .hero-photo img {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        border-radius: 20px;
+        border: 1px solid var(--line);
+      }
+      .hero-greet {
+        font-family: var(--mono);
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        color: var(--sage);
+        text-transform: lowercase;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+      .hero-greet::before {
+        content: "";
+        width: 14px;
+        height: 1px;
+        background: var(--sage);
+      }
+      .hero-name {
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: clamp(30px, 4.4vw, 46px);
+        line-height: 1.14;
+        letter-spacing: -0.01em;
+      }
+      .hero-role {
+        font-family: var(--mono);
+        font-size: 14px;
+        color: var(--ink-soft);
+        margin-top: 12px;
+        letter-spacing: 0.01em;
+      }
+      .hero h1 del {
+        font-style: italic;
+        font-weight: 400;
+        color: var(--mark);
+        text-decoration: none;
+        position: relative;
+      }
+      .hero h1 del::after {
+        content: "";
+        position: absolute;
+        left: -2%;
+        right: -2%;
+        top: 50%;
+        height: 1.5px;
+        background: var(--mark);
+        transform: rotate(-2deg);
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: var(--sage);
+      }
+      .hero .sub {
+        margin-top: 22px;
+        max-width: 480px;
+        font-size: 17px;
+        color: var(--ink-soft);
+      }
+      .hero .cta-row {
+        display: flex;
+        gap: 14px;
+        margin-top: 34px;
+        flex-wrap: wrap;
+      }
+      @media (max-width: 700px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .hero-photo {
+          max-width: 220px;
+        }
+      }
+      .btn {
+        font-family: var(--sans);
+        font-size: 14.5px;
+        font-weight: 500;
+        padding: 13px 24px;
+        border-radius: 100px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition:
+          transform 0.15s,
+          background 0.15s,
+          color 0.15s;
+      }
+      .btn:active {
+        transform: scale(0.98);
+      }
+      .btn-primary {
+        background: var(--ink);
+        color: var(--paper);
+      }
+      .btn-primary:hover {
+        background: var(--sage);
+      }
+      .btn-ghost {
+        border: 1px solid var(--line);
+        color: var(--ink);
+      }
+      .btn-ghost:hover {
+        border-color: var(--ink);
+      }
+
+      /* ---------- section shell w/ margin annotation ---------- */
+      section {
+        padding: 80px 0;
+        border-top: 1px solid var(--line);
+      }
+      .section-head {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 24px;
+        margin-bottom: 44px;
+      }
+      .section-head .tag {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--ink-faint);
+        padding-top: 6px;
+      }
+      .section-head h2 {
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 30px;
+        letter-spacing: -0.01em;
+      }
+      .section-head p {
+        color: var(--ink-soft);
+        margin-top: 10px;
+        max-width: 480px;
+        font-size: 15px;
+      }
+
+      /* ---------- about ---------- */
+      .about-body {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 24px;
+      }
+      .about-content {
+        display: flex;
+        gap: 36px;
+        align-items: flex-start;
+      }
+      .about-photo {
+        width: 168px;
+        height: 168px;
+        border-radius: 50%;
+        object-fit: cover;
+        flex-shrink: 0;
+        border: 1px solid var(--line);
+      }
+      .about-text p {
+        font-size: 18px;
+        font-family: var(--serif);
+        font-weight: 400;
+        line-height: 1.55;
+        max-width: 560px;
+      }
+      .about-text p + p {
+        margin-top: 20px;
+        font-size: 15px;
+        font-family: var(--sans);
+        color: var(--ink-soft);
+      }
+      @media (max-width: 640px) {
+        .about-content {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .about-photo {
+          width: 120px;
+          height: 120px;
+        }
+      }
+
+      /* ---------- education ---------- */
+      .education {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 24px;
+      }
+      .edu-list {
+        display: flex;
+        flex-direction: column;
+      }
+      .edu-item {
+        display: grid;
+        grid-template-columns: 64px 1fr;
+        gap: 18px;
+        padding: 26px 0;
+        border-top: 1px solid var(--line);
+        align-items: start;
+      }
+      .edu-item:first-child {
+        border-top: none;
+        padding-top: 0;
+      }
+      .edu-logo {
+        width: 64px;
+        height: 64px;
+        object-fit: contain;
+        flex-shrink: 0;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--paper-soft);
+        padding: 8px;
+      }
+      .edu-item h3 {
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 18px;
+        margin-bottom: 4px;
+      }
+      .edu-program {
+        font-size: 14.5px;
+        color: var(--ink-soft);
+        margin-bottom: 10px;
+      }
+      .edu-meta {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .edu-meta .edu-year {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--ink-faint);
+      }
+      .edu-meta .edu-gpa {
+        font-family: var(--mono);
+        font-size: 11.5px;
+        color: var(--sage);
+        background: var(--sage-light);
+        padding: 3px 10px;
+        border-radius: 100px;
+      }
+
+      /* ---------- services ---------- */
+      .services {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 24px;
+      }
+      .service-list {
+        display: flex;
+        flex-direction: column;
+      }
+      .service-item {
+        display: grid;
+        grid-template-columns: 44px 1fr;
+        gap: 18px;
+        padding: 26px 0;
+        border-top: 1px solid var(--line);
+      }
+      .service-item:first-child {
+        border-top: none;
+        padding-top: 0;
+      }
+      .service-num {
+        font-family: var(--mono);
+        font-size: 13px;
+        color: var(--mark);
+      }
+      .service-item h3 {
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 19px;
+        margin-bottom: 6px;
+      }
+      .service-item p {
+        font-size: 14.5px;
+        color: var(--ink-soft);
+        max-width: 460px;
+      }
+
+      /* ---------- portfolio ---------- */
+      .portfolio {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 24px;
+      }
+      .case-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .case-card {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        overflow: hidden;
+        transition: border-color 0.15s;
+      }
+      .case-card:hover {
+        border-color: var(--sage);
+      }
+      .case-thumb {
+        width: 100%;
+        aspect-ratio: 4/3;
+        overflow: hidden;
+        background: var(--paper-soft);
+      }
+      .case-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.35s ease;
+      }
+      .case-card:hover .case-thumb img {
+        transform: scale(1.04);
+      }
+      .case-body {
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .case-card h3 {
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 16px;
+        margin-bottom: 4px;
+        line-height: 1.3;
+      }
+      .case-card p {
+        font-size: 13px;
+        color: var(--ink-soft);
+        line-height: 1.5;
+      }
+      .case-tags {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+      .case-tags span {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        color: var(--sage);
+        background: var(--sage-light);
+        padding: 3px 9px;
+        border-radius: 100px;
+      }
+      .case-link {
+        font-family: var(--mono);
+        font-size: 12px;
+        white-space: nowrap;
+        text-decoration: none;
+        color: var(--ink);
+        border-bottom: 1px solid var(--ink);
+        padding-bottom: 2px;
+      }
+      .case-card.placeholder {
+        border-style: dashed;
+        color: var(--ink-faint);
+      }
+      .case-card.placeholder h3 {
+        color: var(--ink-faint);
+      }
+      .case-card.placeholder p {
+        color: var(--ink-faint);
+      }
+      .case-card.placeholder .case-body {
+        justify-content: center;
+        min-height: 160px;
+      }
+
+      /* ---------- motto hidup ---------- */
+      .motto {
+        position: relative;
+        overflow: hidden;
+        padding: 120px 0;
+        text-align: center;
+        background: var(--paper-soft);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+      .motto::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          180deg,
+          var(--sage-light) 0px,
+          var(--sage-light) 1px,
+          transparent 1px,
+          transparent 26px
+        );
+        opacity: 0.6;
+      }
+      .motto-mark {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 8px;
+      }
+      .motto-quote {
+        position: relative;
+        max-width: 620px;
+        margin: 0 auto;
+        font-family: var(--serif);
+        font-style: italic;
+        font-weight: 400;
+        font-size: clamp(21px, 2.8vw, 29px);
+        line-height: 1.7;
+        letter-spacing: -0.005em;
+        color: var(--ink);
+      }
+      .motto-highlight {
+        display: block;
+        margin-top: 22px;
+        font-family: var(--serif);
+        font-style: italic;
+        font-weight: 500;
+        font-size: 0.86em;
+        color: var(--sage);
+        letter-spacing: 0.01em;
+      }
+      .motto-quote::before,
+      .motto-quote::after {
+        content: "";
+        display: block;
+        width: 34px;
+        height: 1px;
+        background: var(--sage);
+        margin: 0 auto;
+      }
+      .motto-quote::before {
+        margin-bottom: 26px;
+      }
+      .motto-quote::after {
+        margin-top: 26px;
+      }
+
+      /* ---------- contact ---------- */
+      .contact {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 24px;
+      }
+      .contact h2 {
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 34px;
+        max-width: 520px;
+        letter-spacing: -0.01em;
+      }
+      .contact-links {
+        display: flex;
+        gap: 16px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+      .contact-links a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14.5px;
+        font-weight: 500;
+        text-decoration: none;
+        border: 1px solid var(--line);
+        border-radius: 100px;
+        padding: 11px 20px;
+        transition:
+          border-color 0.15s,
+          background 0.15s;
+      }
+      .contact-links a:hover {
+        border-color: var(--ink);
+        background: var(--paper-soft);
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 34px 0;
+      }
+      footer .wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        color: var(--ink-faint);
+      }
+      footer .wrap span.mono {
+        font-family: var(--mono);
+      }
+
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(14px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
+      [data-reveal].in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 760px) {
+        .navlinks {
+          display: none;
+        }
+        .navtoggle {
+          display: block;
+        }
+        .section-head,
+        .about-body,
+        .education,
+        .services,
+        .portfolio,
+        .contact {
+          grid-template-columns: 1fr;
+        }
+        .section-head .tag {
+          padding-top: 0;
+        }
+        .case-grid {
+          grid-template-columns: 1fr;
+        }
+        .motto {
+          padding: 80px 0;
+        }
+        .hero {
+          padding: 70px 0 60px;
+        }
+        footer .wrap {
+          flex-direction: column;
+          gap: 8px;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="wrap">
+        <a href="#top" class="logo">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path
+              d="M4 18L15 4M15 4H7M15 4V12"
+              stroke="#4A5D3A"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Newa's&nbsp;Here
+        </a>
+        <ul class="navlinks">
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#pendidikan">Pendidikan</a></li>
+          <li><a href="#layanan">Layanan</a></li>
+          <li><a href="#portofolio">Portofolio</a></li>
+        </ul>
+        <a class="nav-cta" href="#kontak">Hubungi saya</a>
+        <button class="navtoggle" aria-label="Buka menu" id="navToggle">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero wrap" style="border-top: none; padding-top: 64px">
+        <div class="hero-grid">
+          <div class="hero-photo">
+            <img
+              src="assets/hero.jpeg"
+              alt="Foto Newa Kheisya Pramesthilaras"
+            />
+          </div>
+          <div class="hero-text">
+            <div class="hero-greet">halo, kenalan dengan</div>
+            <h1 class="hero-name">Newa Kheisya<br />Pramesthilaras</h1>
+            <p class="hero-role">Content Writer &amp; UX Writer</p>
+            <p class="sub">
+              Newa's Here menulis ulang cara brand bicara ke pembacanya — dari
+              konten website sampai microcopy produk — supaya pesannya nyampe
+              dalam satu tarikan napas.
+            </p>
+            <div class="cta-row">
+              <a href="#portofolio" class="btn btn-primary">Lihat portofolio</a>
+              <a href="#kontak" class="btn btn-ghost">Hubungi saya</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tentang">
+        <div class="wrap section-head" data-reveal>
+          <div class="tag">01 — tentang</div>
+          <div>
+            <h2>Tulisan yang bagus itu tulisan yang "hilang".</h2>
+          </div>
+        </div>
+        <div class="wrap about-body" data-reveal>
+          <div></div>
+          <div class="about-content">
+            <img
+              class="about-photo"
+              src="assets/profile.jpeg"
+              alt="Foto Newa"
+            />
+            <div class="about-text">
+              <p>
+                Saya merupakan alumni D3 Jamu tahun 2024. Saat ini saya bekerja
+                sebagai penulis, periset, dan pengolah data secara penuh waktu
+                untuk website
+                <a
+                  href="https://jamupedia.com/"
+                  target="_blank"
+                  rel="noopener"
+                  style="color: var(--sage); text-decoration: underline"
+                  >Jamupedia</a
+                >
+                yang berada di bawah naungan Yayasan Literasi Husada Nusantara
+                Surakarta.
+              </p>
+              <p>
+                Pengalaman ini membentuk kemampuan saya dalam mengolah informasi
+                kesehatan tradisional secara ilmiah dan komunikatif. Selain itu,
+                saya memiliki ketertarikan yang kuat terhadap budaya populer
+                (pop culture) serta minat yang besar untuk menulis konten
+                kreatif, khususnya untuk kebutuhan majalah wanita.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pendidikan">
+        <div class="wrap section-head" data-reveal>
+          <div class="tag">02 — pendidikan</div>
+          <div>
+            <h2>Pendidikan &amp; pencapaian</h2>
+          </div>
+        </div>
+        <div class="wrap education" data-reveal>
+          <div></div>
+          <div class="edu-list">
+            <div class="edu-item">
+              <img
+                class="edu-logo"
+                src="assets/edu-poltekkes-surakarta.webp"
+                alt="Logo Politeknik Kesehatan Kementerian Kesehatan Surakarta"
+              />
+              <div>
+                <h3>Politeknik Kesehatan Kementerian Kesehatan Surakarta</h3>
+                <p class="edu-program">Program Studi DIII Jamu</p>
+                <div class="edu-meta">
+                  <span class="edu-year">2021 — 2024</span>
+                  <span class="edu-gpa">IPK 3,82</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="layanan">
+        <div class="wrap section-head" data-reveal>
+          <div class="tag">03 — layanan</div>
+          <div>
+            <h2>Dua hal yang saya kerjakan</h2>
+            <p>
+              Fokus, bukan serba bisa — supaya hasilnya konsisten dan terasa
+              dipikirkan.
+            </p>
+          </div>
+        </div>
+        <div class="wrap services" data-reveal>
+          <div></div>
+          <div class="service-list">
+            <div class="service-item">
+              <div class="service-num">→ 01</div>
+              <div>
+                <h3>Website content</h3>
+                <p>
+                  Menulis dan menyusun konten halaman website — beranda,
+                  tentang, kategori, sampai artikel — supaya brand punya satu
+                  suara yang konsisten di semua halaman.
+                </p>
+              </div>
+            </div>
+            <div class="service-item">
+              <div class="service-num">→ 02</div>
+              <div>
+                <h3>UX writing</h3>
+                <p>
+                  Microcopy untuk tombol, form, notifikasi, dan pesan error atau
+                  kosong — yang bikin produk terasa lebih manusiawi dan gampang
+                  dipakai.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="portofolio">
+        <div class="wrap section-head" data-reveal>
+          <div class="tag">04 — portofolio</div>
+          <div>
+            <h2>Studi kasus</h2>
+            <p>Sebagian proyek yang pernah saya tulis dan kelola kontennya.</p>
+          </div>
+        </div>
+        <div class="wrap portfolio" data-reveal>
+          <div></div>
+          <div>
+            <div class="case-grid">
+              <div class="case-card">
+                <div class="case-thumb">
+                  <img
+                    src="assets/portfolio-wayang.jpg"
+                    alt="Tangkapan layar artikel The Story of Wayang"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="case-body">
+                  <div>
+                    <h3>The Story of Wayang</h3>
+                    <p>
+                      Artikel dalam seri warisan budaya takbenda UNESCO yang
+                      menelusuri asal-usul wayang sebagai seni bayangan tertua
+                      di Nusantara — mulai dari akar filosofis namanya, jejaknya
+                      dalam prasasti dan karya sastra kuno, ragam jenis wayang
+                      di berbagai daerah, hingga pengakuan resmi UNESCO pada
+                      2003.
+                    </p>
+                    <div class="case-tags">
+                      <span>content writing</span>
+                      <span>riset budaya</span>
+                      <span>storytelling</span>
+                    </div>
+                  </div>
+                  <a
+                    class="case-link"
+                    href="https://web.acarakirevitalisasi.com/wayang/"
+                    target="_blank"
+                    rel="noopener"
+                    >Baca artikel ↗</a
+                  >
+                </div>
+              </div>
+              <div class="case-card">
+                <div class="case-thumb">
+                  <img
+                    src="assets/portfolio-reog.jpg"
+                    alt="Tangkapan layar artikel The Story of Reog Ponorogo"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="case-body">
+                  <div>
+                    <h3>The Story of Reog Ponorogo</h3>
+                    <p>
+                      Mengangkat kesenian Reog Ponorogo sebagai warisan budaya
+                      takbenda yang diakui UNESCO pada 2004 — dari legenda cinta
+                      di balik lahirnya kesenian ini, peran tiap karakter di
+                      panggung, proses pembuatan kostum dan topeng, hingga upaya
+                      pelestariannya lintas generasi.
+                    </p>
+                    <div class="case-tags">
+                      <span>content writing</span>
+                      <span>riset budaya</span>
+                      <span>storytelling</span>
+                    </div>
+                  </div>
+                  <a
+                    class="case-link"
+                    href="https://web.acarakirevitalisasi.com/reog-ponorogo/"
+                    target="_blank"
+                    rel="noopener"
+                    >Baca artikel ↗</a
+                  >
+                </div>
+              </div>
+              <div class="case-card">
+                <div class="case-thumb">
+                  <img
+                    src="assets/portfolio-silat.jpg"
+                    alt="Tangkapan layar artikel The Story of Pencak Silat"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="case-body">
+                  <div>
+                    <h3>The Story of Pencak Silat</h3>
+                    <p>
+                      Pencak silat, kesenian tradisional asli dari Indonesia
+                      yang masih dipelajari khususnya oleh para remaja. Pencak
+                      silat berkembang dari Sabang sampai Merauke dengan ciri
+                      khasnya masing-masing. Dewasa ini, pencak silat semakin
+                      unjuk diri dengan adanya organisasi pencak silat,
+                      kompetisi pencak silat, hingga ke ranah layar kaca.
+                    </p>
+                    <div class="case-tags">
+                      <span>content writing</span>
+                      <span>riset budaya</span>
+                      <span>storytelling</span>
+                    </div>
+                  </div>
+                  <a
+                    class="case-link"
+                    href="https://web.acarakirevitalisasi.com/pencak-silat/"
+                    target="_blank"
+                    rel="noopener"
+                    >Baca artikel ↗</a
+                  >
+                </div>
+              </div>
+              <div class="case-card">
+                <div class="case-thumb">
+                  <img
+                    src="assets/portfolio-tarisaman.jpg"
+                    alt="Tangkapan layar artikel The Story of Tari Saman"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="case-body">
+                  <div>
+                    <h3>The Story of Tari Saman</h3>
+                    <p>
+                      Tari saman merupakan warisan budaya yang berasal dari
+                      masyarakat suku Gayo, khususnya Gayo Lues yang menghuni
+                      wilayah Aceh Tenggara dan Aceh Timur.
+                    </p>
+                    <div class="case-tags">
+                      <span>content writing</span>
+                      <span>riset budaya</span>
+                      <span>storytelling</span>
+                    </div>
+                  </div>
+                  <a
+                    class="case-link"
+                    href="https://web.acarakirevitalisasi.com/tari-saman/"
+                    target="_blank"
+                    rel="noopener"
+                    >Baca artikel ↗</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="motto" class="motto">
+        <div class="wrap">
+          <div class="motto-mark" aria-hidden="true">
+            <svg width="46" height="34" viewBox="0 0 46 34" fill="none">
+              <path
+                d="M23 33C23 33 8 27 8 15C8 8 14 3 23 3C32 3 38 8 38 15C38 27 23 33 23 33Z"
+                stroke="#4A5D3A"
+                stroke-width="1.3"
+                opacity="0.35"
+              />
+              <path
+                d="M23 33C23 33 12 26 12 16C12 10.5 17 6.5 23 6.5C29 6.5 34 10.5 34 16C34 26 23 33 23 33Z"
+                stroke="#4A5D3A"
+                stroke-width="1.3"
+                opacity="0.6"
+              />
+              <path
+                d="M23 33C23 33 16 25 16 17C16 13 19 10 23 10C27 10 30 13 30 17C30 25 23 33 23 33Z"
+                stroke="#4A5D3A"
+                stroke-width="1.3"
+              />
+            </svg>
+          </div>
+          <p class="motto-quote">
+            Seperti sawi putih, sukses tidak terjadi instan. Ia adalah kumpulan
+            dari lembaran-lembaran proses yang dibangun dengan konsistensi dan
+            kerapatan tekad,
+            <span class="motto-highlight"
+              >Sawi putih adalah jalan ninja ku.</span
+            >
+          </p>
+        </div>
+      </section>
+
+      <section id="kontak">
+        <div class="wrap contact" data-reveal>
+          <div
+            class="tag"
+            style="
+              font-family: var(--mono);
+              font-size: 12px;
+              color: var(--ink-faint);
+            "
+          >
+            05 — kontak
+          </div>
+          <div>
+            <h2>Ada project yang butuh kata-kata yang lebih jelas?</h2>
+            <div class="contact-links">
+              <a
+                href="https://linkedin.com/in/newa-kheisya-pramesthilaras-69834b1b3"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M6.94 8.5H3.56V20.5H6.94V8.5Z" fill="currentColor" />
+                  <path
+                    d="M5.25 7C6.35 7 7.25 6.1 7.25 5C7.25 3.9 6.35 3 5.25 3C4.15 3 3.25 3.9 3.25 5C3.25 6.1 4.15 7 5.25 7Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M20.5 20.5H17.13V14.5C17.13 13.2 16.6 12.5 15.55 12.5C14.4 12.5 13.75 13.28 13.75 14.5V20.5H10.38V8.5H13.75V10.05C13.75 10.05 14.75 8.25 17.05 8.25C19.35 8.25 20.5 9.65 20.5 12.55V20.5Z"
+                    fill="currentColor"
+                  />
+                </svg>
+                LinkedIn
+              </a>
+              <a
+                href="https://instagram.com/newakhey"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <rect
+                    x="3"
+                    y="3"
+                    width="18"
+                    height="18"
+                    rx="5"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="4"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+                  <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" />
+                </svg>
+                @newakhey
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span>Newa's Here © 2026</span>
+        <span class="mono">website content &amp; ux writer</span>
+      </div>
+    </footer>
+
+    <script>
+      // mobile nav toggle
+      const toggle = document.getElementById("navToggle");
+      const links = document.querySelector(".navlinks");
+      toggle.addEventListener("click", () => {
+        const showing = links.style.display === "flex";
+        links.style.display = showing ? "none" : "flex";
+        links.style.flexDirection = "column";
+        links.style.position = "absolute";
+        links.style.top = "76px";
+        links.style.left = "0";
+        links.style.right = "0";
+        links.style.background = "var(--paper)";
+        links.style.padding = "20px 32px";
+        links.style.borderBottom = "1px solid var(--line)";
+      });
+
+      // reveal on scroll
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      document
+        .querySelectorAll("[data-reveal]")
+        .forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>
